@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../user';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-student-add',
@@ -8,12 +10,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StudentAddComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+userModel = new User("","","","","")
 
+
+  constructor(private _studentservice: StudentService) { }
+  onSubmit(){
+console.log(this.userModel)
+    this._studentservice.enroll(this.userModel)
+    .subscribe(
+      data => console.log('Success',data),
+      error=> console.error('Error',error)
+
+    )
+    document.location.href = '/showstudents';
+  }
   ngOnInit(): void {
 
-   let resp =  this.http.get(""); // url and data to be added
-    resp.subscribe((data) => console.log(data));
   }
 
+
+  
 }

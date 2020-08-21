@@ -9,7 +9,7 @@ import { StudentDeleteComponent } from './student-delete/student-delete.componen
 const routes: Routes = [
 {path: 'showstudents', component: StudentListComponent },
 {path: 'addstudents', component: StudentAddComponent},
-{path:'updatestudents', component: StudentUpdateComponent},
+{path:'showstudents/:id', component: StudentUpdateComponent},
 {path:'deletestudents', component: StudentDeleteComponent},
 
 ];

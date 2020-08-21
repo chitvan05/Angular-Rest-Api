@@ -1,0 +1,75 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+<br>
+<br>
+<div class="container">
+  <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Action</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody  *ngFor =" let student of students">
+          <tr>
+            <td >{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.lastname}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.city}}</td>
+            <!-- <td><a href="/updatestudents"><button type="button" class="btn btn-danger " >Delete</button></a></td>
+             -->
+            <td><button type="button" class="btn btn-danger " (click)="onDelete(student)">Delete</button></td>
+            <td><button type="button" routerLink="/showstudents/{{student.id}}" (click)="onSelect(student)" class="btn btn-primary">Update</button></td>
+            
+          </tr>
+         
+        </tbody>
+</table>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function demo(){
+  var $row = $(this).closest("tr"); // Find the row
+  var parameter = $row.find(".nr1").text();
+ 
+  console.log(parameter);
+  
+  // document.getElementById('parameter').value = parameter;
+  // document.getElementById('thresold_low').value = t_low;
+  // document.getElementById('thresold_high').value = t_high;
+
+
+}
+</script>

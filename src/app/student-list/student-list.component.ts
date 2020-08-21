@@ -10,10 +10,13 @@ export class StudentListComponent implements OnInit {
 
   constructor(private http:HttpClient) { }
 
+  
   ngOnInit(): void {
 
-   let resp =  this.http.get("https://api.covid19api.com/"); //url used for testing purpose
+   let resp =  this.http.get("http://localhost:8080/student/"); 
+   
     resp.subscribe((data) => console.log(data));
+    
   }
 
 }

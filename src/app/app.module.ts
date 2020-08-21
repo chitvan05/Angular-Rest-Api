@@ -8,6 +8,12 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentAddComponent } from './student-add/student-add.component';
 import { StudentUpdateComponent } from './student-update/student-update.component';
 import { StudentDeleteComponent } from './student-delete/student-delete.component';
+import { StudentService } from './student.service';
+import { ShowstudentComponent } from './showstudent/showstudent.component';
+import { FormsModule} from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalBasicComponent } from './modal-basic/modal-basic.component';
+  
 
 @NgModule({
   declarations: [
@@ -15,14 +21,18 @@ import { StudentDeleteComponent } from './student-delete/student-delete.componen
     StudentListComponent,
     StudentAddComponent,
     StudentUpdateComponent,
-    StudentDeleteComponent
+    StudentDeleteComponent,
+    ShowstudentComponent,
+    ModalBasicComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
